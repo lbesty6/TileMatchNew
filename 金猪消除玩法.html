@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>金猪收集消除</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="phone">
+    <header class="topbar">
+      <button class="icon-btn" id="resetBtn" aria-label="重新开始">↻</button>
+      <section class="score-panel" aria-label="当前进度">
+        <div>
+          <span>步数</span>
+          <strong id="moves">0</strong>
+        </div>
+        <div>
+          <span>分数</span>
+          <strong id="score">0</strong>
+        </div>
+      </section>
+      <div class="wallet" aria-label="金币">
+        <span class="coin">￥</span>
+        <strong id="coins">0</strong>
+      </div>
+    </header>
+
+    <section class="stage-row">
+      <span>普通</span>
+      <strong id="stageText">阶段 1</strong>
+      <span id="leftCount">80</span>
+    </section>
+
+    <section class="board-wrap">
+      <div class="board" id="board" aria-label="8乘10消除棋盘"></div>
+    </section>
+
+    <footer class="tool-row">
+      <button class="tool-btn" id="hintBtn" aria-label="提示">
+        <span class="bulb">!</span>
+        <em id="hints">5</em>
+      </button>
+      <button class="round-btn" id="shuffleBtn" aria-label="重排">⟳</button>
+      <button class="round-btn" id="pauseBtn" aria-label="暂停">Ⅱ</button>
+    </footer>
+
+    <button class="gm-toggle" id="gmToggle" aria-label="GM">GM</button>
+    <section class="gm-panel hidden" id="gmPanel" aria-label="GM调试面板">
+      <label>
+        行
+        <input id="gmRows" type="number" min="4" max="12" value="10">
+      </label>
+      <label>
+        列
+        <input id="gmCols" type="number" min="4" max="10" value="8">
+      </label>
+      <label>
+        类别
+        <input id="gmTypes" type="number" min="2" max="24" value="24">
+      </label>
+      <label>
+        通关率
+        <input id="gmPassRate" type="range" min="0" max="100" value="45">
+        <span id="gmPassRateText">45%</span>
+      </label>
+      <button class="gm-apply" id="gmApply">应用</button>
+    </section>
+  </main>
+
+  <div class="modal hidden" id="pigModal" role="dialog" aria-modal="true" aria-label="砸金猪">
+    <div class="gift-panel">
+      <div class="ribbon">选择你的礼物</div>
+      <h2>哪个礼物藏着幸运大奖?</h2>
+      <div class="gift-pigs" id="giftPigs">
+        <button class="gift-pig" data-index="0" aria-label="金猪礼物1"></button>
+        <button class="gift-pig" data-index="1" aria-label="金猪礼物2"></button>
+        <button class="gift-pig" data-index="2" aria-label="金猪礼物3"></button>
+      </div>
+      <div class="reward hidden" id="rewardBox"></div>
+      <button class="play-again hidden" id="playAgain">再来一局</button>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
